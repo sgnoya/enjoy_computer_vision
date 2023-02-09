@@ -1,0 +1,32 @@
+strictness: medium
+# doc-warnings: true
+max-line-length: 80
+
+pep8:
+  full: true
+  disable:
+    - "E203" # white space before :
+    - "E402" # Module level import not a t top of file
+
+pep257:
+  run: true
+
+pylint:
+  disable:
+    - too-many-locals
+
+# bandit:
+#  run: true
+mccabe:
+  run: true
+  options:
+    max-complexity: 10
+
+dodgy:
+  run: True
+
+mypy:
+  run: true
+  options:
+    ignore-missing-imports: true
+    follow-imports: skip

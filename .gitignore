@@ -1,0 +1,12 @@
+.cache
+.conda
+.config
+.dotnet
+.empty
+.gnupg
+.ipython
+.local
+.vscode-server
+.bash_history
+.env
+.python_history

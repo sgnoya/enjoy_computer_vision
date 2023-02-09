@@ -1,0 +1,31 @@
+version: '3'
+services:
+  app:
+    image: sgnoy/pytorch:1.13
+    container_name: enjoy_computer_vision
+    hostname: enjoy_computer_vision
+    build:
+      context: .
+      args:
+        - UID=${UID}
+        - GID=${GID}
+        - USER_NAME=${USER_NAME}
+        - GROUP_NAME=${GROUP_NAME}
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - TERM=xterm-256color
+    stdin_open: true
+    tty: true
+    network_mode: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    user: "${GID}:${UID}"
