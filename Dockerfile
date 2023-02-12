@@ -6,10 +6,12 @@ ARG GID
 ARG GROUP_NAME
 
 RUN apt update
-RUN apt install -y sudo git
+RUN apt install -y sudo git libgl1-mesa-dev libopencv-dev
+
 
 # base
 RUN pip install prospector black matplotlib ipykernel
+RUN pip install opencv-python
 
 # stable diffusion
 RUN pip install diffusers[torch]==0.9 transformers
