@@ -58,8 +58,7 @@ img = cv2.imread("checkerboard/checkerboard.png")
 distorted, newcmat = undistortion(img, org_mtx, dist)
 plt.imshow(distorted)
 plt.show()
-
-
+cv2.imwrite("checkerboard/distorted.png", img)
 # %%
 
 ret, pred_mtx, pred_dist, rvecs, tvecs = calibration(distorted)
@@ -69,6 +68,7 @@ plt.subplot(1, 2, 1)
 plt.imshow(distorted)
 plt.subplot(1, 2, 2)
 plt.imshow(undistorted)
+plt.savefig("checkerboard/calibration_results.png")
 plt.show()
 
 # %%
