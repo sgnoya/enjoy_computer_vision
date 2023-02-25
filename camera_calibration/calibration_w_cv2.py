@@ -58,7 +58,7 @@ img = cv2.imread("checkerboard/checkerboard.png")
 distorted, newcmat = undistortion(img, org_mtx, dist)
 plt.imshow(distorted)
 plt.show()
-cv2.imwrite("checkerboard/distorted.png", img)
+cv2.imwrite("checkerboard/distorted.png", distorted)
 # %%
 
 ret, pred_mtx, pred_dist, rvecs, tvecs = calibration(distorted)
